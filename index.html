@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination and Results System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-page" class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#registerModal">Register</button>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#adminLoginModal">Admin Login</button>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#forgotPasswordModal">Forgot Password</button>
+        </form>
+    </div>
+    <div id="exam-page" class="exam-container" style="display: none;">
+        <h2>Exam</h2>
+        <button type="button" class="btn btn-secondary" id="logout-btn">Logout</button>
+        <form id="exam-form">
+            <div id="question-container"></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div id="results-page" style="display: none; text-align: center;">
+        <h2>Results</h2>
+        <p id="results"></p>
+        <button type="button" class="btn btn-secondary" id="logout-results-btn">Logout</button>
+    </div>
+    <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+        <h2>Admin Dashboard</h2>
+        <button type="button" class="btn btn-secondary" id="admin-logout-btn">Logout</button>
+        <button class="btn btn-primary" id="add-exam-btn">Add Exam</button>
+        <button class="btn btn-primary" id="view-users-btn">View Users</button>
+        <button class="btn btn-primary" id="view-student-results-btn">View Student Results</button>
+        <div id="admin-content"></div>
+    </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="reg-username">Username:</label>
+                            <input type="text" class="form-control" id="reg-username" required>
+                        </div>
+			<div class="form-group">
+                            <label for="reg-fullname">Full Name:</label>
+                            <input type="text" class="form-control" id="reg-fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-email">Email:</label>
+                            <input type="email" class="form-control" id="reg-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-password">Password:</label>
+                            <input type="password" class="form-control" id="reg-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-confirm-password">Confirm Password:</label>
+                            <input type="password" class="form-control" id="reg-confirm-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forgotPasswordModalLabel">Forgot Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="forgot-password-form">
+                        <div class="form-group">
+                            <label for="fp-username">Username:</label>
+                            <input type="text" class="form-control" id="fp-username" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Reset Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="adminLoginModal" tabindex="-1" role="dialog" aria-labelledby="adminLoginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adminLoginModalLabel">Admin Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="admin-login-form">
+                        <div class="form-group">
+                            <label for="admin-username">Username:</label>
+                            <input type="text" class="form-control" id="admin-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="admin-password">Password:</label>
+                            <input type="password" class="form-control" id="admin-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
