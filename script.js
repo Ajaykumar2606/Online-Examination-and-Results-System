@@ -6,6 +6,38 @@ let currentQuestion = 0; // Tracks the current question index
 let score = 0; // Tracks the student's score
 let studentResults = {}; // Stores results of students
 
+// Adding default exam and questions
+exams.push({
+    name: "Sample Exam",
+    questions: [
+        {
+            question: "What is the capital of France?",
+            options: ["Berlin", "Madrid", "Paris", "Lisbon"],
+            correctAnswer: 2 // Index of the correct answer
+        },
+        {
+            question: "Which planet is known as the Red Planet?",
+            options: ["Earth", "Mars", "Jupiter", "Saturn"],
+            correctAnswer: 1
+        },
+        {
+            question: "What is the largest ocean on Earth?",
+            options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+            correctAnswer: 3
+        },
+        {
+            question: "Who wrote 'Romeo and Juliet'?",
+            options: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"],
+            correctAnswer: 1
+        },
+        {
+            question: "What is the chemical symbol for water?",
+            options: ["H2O", "O2", "CO2", "NaCl"],
+            correctAnswer: 0
+        }
+    ]
+});
+
 // Function to validate user login
 function login(username, password) {
     for (let user of users) {
